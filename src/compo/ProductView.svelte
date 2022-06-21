@@ -4,13 +4,11 @@
     export let productpkey;
     export let thumb;
 
-    function goProduct(){
-        location.href = "/#/product/" + productpkey;
-    }
+    function goProduct() { location.href = "/#/product/" + productpkey; }
 </script>
 
 <div class="container" on:click={goProduct}>
-    <img alt="img" src={thumb}>
+    <img alt="img" src={"/img/" + thumb}>
     <div class="info">
         <div class="artist">{artist}</div>
         <div class="title">{title}</div>

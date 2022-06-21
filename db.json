@@ -1,5 +1,5 @@
 {
     "products" : [
-        {"id" : 1, "title" : "xx"}
+        {"id" : 1, "title" : "xx", "thumb" : "img01.jpg"}
     ]
 }

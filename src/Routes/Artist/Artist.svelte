@@ -1,25 +1,27 @@
 <script>
     import { onMount } from "svelte";
     import ProductView from "../../compo/ProductView.svelte";
-    const endpoint = "https://jsonplaceholder.typicode.com/albums/1/photos";
-    let list = [];    
-
+    export let params;
+    const endpoint = "https://my-json-server.typicode.com/vlaksuga/skrtch/products";
+    let list = [];        
     onMount(async function() {        
         const respose = await fetch(endpoint);
         const data = await respose.json();
         list = data;
     })
 </script>
-<article>    
+<article>
+    {#if params}    
     <h2>ARTIST NAME</h2>    
     <hr>
     <div class="container">
         {#each list as item}        
         <div class="item">
-            <ProductView artist={item.title} title={item.title} productpkey={item.id} thumb={item.url}/>
+            <ProductView artist={item.title} title={item.title} productpkey={item.id} thumb={item.thumb}/>
         </div>        
         {/each}
-    </div>
+    </div>    
+    {/if}
 </article>
 
 <style>
