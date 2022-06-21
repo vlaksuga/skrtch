@@ -2059,11 +2059,11 @@ var app = (function () {
     			attr_dev(img, "class", "svelte-1hkn3th");
     			add_location(img, file$5, 10, 4, 249);
     			attr_dev(div0, "class", "artist svelte-1hkn3th");
-    			add_location(div0, file$5, 12, 8, 320);
+    			add_location(div0, file$5, 12, 8, 328);
     			attr_dev(div1, "class", "title");
-    			add_location(div1, file$5, 13, 8, 364);
+    			add_location(div1, file$5, 13, 8, 372);
     			attr_dev(div2, "class", "price");
-    			add_location(div2, file$5, 14, 8, 406);
+    			add_location(div2, file$5, 14, 8, 414);
     			attr_dev(div3, "class", "info");
     			add_location(div3, file$5, 11, 4, 292);
     			attr_dev(div4, "class", "container svelte-1hkn3th");
@@ -2374,9 +2374,9 @@ var app = (function () {
 
     	productview = new ProductView({
     			props: {
-    				artist: /*item*/ ctx[2].title,
+    				owner: /*item*/ ctx[2].owner,
     				title: /*item*/ ctx[2].title,
-    				productpkey: /*item*/ ctx[2].id,
+    				productpkey: /*item*/ ctx[2].productpkey,
     				thumb: /*item*/ ctx[2].thumb
     			},
     			$$inline: true
@@ -2398,9 +2398,9 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const productview_changes = {};
-    			if (dirty & /*list*/ 2) productview_changes.artist = /*item*/ ctx[2].title;
+    			if (dirty & /*list*/ 2) productview_changes.owner = /*item*/ ctx[2].owner;
     			if (dirty & /*list*/ 2) productview_changes.title = /*item*/ ctx[2].title;
-    			if (dirty & /*list*/ 2) productview_changes.productpkey = /*item*/ ctx[2].id;
+    			if (dirty & /*list*/ 2) productview_changes.productpkey = /*item*/ ctx[2].productpkey;
     			if (dirty & /*list*/ 2) productview_changes.thumb = /*item*/ ctx[2].thumb;
     			productview.$set(productview_changes);
     		},

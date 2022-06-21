@@ -9,7 +9,7 @@
 
 <div class="container" on:click={goProduct}>
     <img alt="img" src={"/img/" + thumb}>
-    <div class="info">
+    <div class="info">        
         <div class="artist">{artist}</div>
         <div class="title">{title}</div>
         <div class="price">30,000원</div>

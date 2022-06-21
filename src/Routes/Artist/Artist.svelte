@@ -17,7 +17,7 @@
     <div class="container">
         {#each list as item}        
         <div class="item">
-            <ProductView artist={item.title} title={item.title} productpkey={item.id} thumb={item.thumb}/>
+            <ProductView owner={item.owner} title={item.title} productpkey={item.productpkey} thumb={item.thumb}/>
         </div>        
         {/each}
     </div>    

@@ -1,5 +1,20 @@
 {
     "products" : [
-        {"id" : 1, "title" : "xx", "thumb" : "img01.jpg"}
+        {
+            "productpkey" : 1,
+            "owner" : [
+                {"ownerpkey" : 1, "name" : "Nirvana" }
+            ],
+            "title" : "Nevermind",
+            "thumb" : "img01.jpg"
+        },
+        {
+            "productpkey" : 2,
+            "owner" : [
+                {"ownerpkey" : 2, "name" : "Amy Winehouse" }
+            ],
+            "title" : "Back To Black",
+            "thumb" : "img02.jpg"
+        }
     ]
 }
