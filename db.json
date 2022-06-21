@@ -6,6 +6,7 @@
                 {"ownerpkey" : 1, "name" : "Nirvana" }
             ],
             "title" : "Nevermind",
+            "price" : 30000,
             "thumb" : "img01.jpg"
         },
         {
@@ -14,6 +15,7 @@
                 {"ownerpkey" : 2, "name" : "Amy Winehouse" }
             ],
             "title" : "Back To Black",
+            "price" : 45000,
             "thumb" : "img02.jpg"
         }
     ]

@@ -2024,6 +2024,56 @@ var app = (function () {
 
     const file$5 = "src\\compo\\ProductView.svelte";
 
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[2] = list[i];
+    	return child_ctx;
+    }
+
+    // (11:8) {#each product.owner as item}
+    function create_each_block$1(ctx) {
+    	let span;
+    	let t_value = /*item*/ ctx[2].name + "";
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			t = text(t_value);
+    			add_location(span, file$5, 11, 12, 338);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t);
+
+    			if (!mounted) {
+    				dispose = listen_dev(span, "click", /*goProduct*/ ctx[1], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*product*/ 1 && t_value !== (t_value = /*item*/ ctx[2].name + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(11:8) {#each product.owner as item}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$5(ctx) {
     	let div4;
     	let img;
@@ -2032,13 +2082,23 @@ var app = (function () {
     	let div3;
     	let div0;
     	let t1;
-    	let t2;
     	let div1;
+    	let t2_value = /*product*/ ctx[0].title + "";
+    	let t2;
     	let t3;
-    	let t4;
     	let div2;
+    	let t4_value = /*product*/ ctx[0].price + "";
+    	let t4;
+    	let t5;
     	let mounted;
     	let dispose;
+    	let each_value = /*product*/ ctx[0].owner;
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
 
     	const block = {
     		c: function create() {
@@ -2047,27 +2107,32 @@ var app = (function () {
     			t0 = space();
     			div3 = element("div");
     			div0 = element("div");
-    			t1 = text(/*artist*/ ctx[0]);
-    			t2 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t1 = space();
     			div1 = element("div");
-    			t3 = text(/*title*/ ctx[1]);
-    			t4 = space();
+    			t2 = text(t2_value);
+    			t3 = space();
     			div2 = element("div");
-    			div2.textContent = "30,000원";
+    			t4 = text(t4_value);
+    			t5 = text("원");
     			attr_dev(img, "alt", "img");
-    			if (!src_url_equal(img.src, img_src_value = "/img/" + /*thumb*/ ctx[2])) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "class", "svelte-1hkn3th");
-    			add_location(img, file$5, 10, 4, 249);
-    			attr_dev(div0, "class", "artist svelte-1hkn3th");
-    			add_location(div0, file$5, 12, 8, 328);
+    			if (!src_url_equal(img.src, img_src_value = "/img/" + /*product*/ ctx[0].thumb)) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "class", "svelte-11r4n0n");
+    			add_location(img, file$5, 7, 4, 183);
+    			attr_dev(div0, "class", "owner svelte-11r4n0n");
+    			add_location(div0, file$5, 9, 8, 266);
     			attr_dev(div1, "class", "title");
-    			add_location(div1, file$5, 13, 8, 372);
+    			add_location(div1, file$5, 14, 8, 470);
     			attr_dev(div2, "class", "price");
-    			add_location(div2, file$5, 14, 8, 414);
+    			add_location(div2, file$5, 15, 8, 520);
     			attr_dev(div3, "class", "info");
-    			add_location(div3, file$5, 11, 4, 292);
-    			attr_dev(div4, "class", "container svelte-1hkn3th");
-    			add_location(div4, file$5, 9, 0, 199);
+    			add_location(div3, file$5, 8, 4, 234);
+    			attr_dev(div4, "class", "container svelte-11r4n0n");
+    			add_location(div4, file$5, 6, 0, 133);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2078,30 +2143,61 @@ var app = (function () {
     			append_dev(div4, t0);
     			append_dev(div4, div3);
     			append_dev(div3, div0);
-    			append_dev(div0, t1);
-    			append_dev(div3, t2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div0, null);
+    			}
+
+    			append_dev(div3, t1);
     			append_dev(div3, div1);
-    			append_dev(div1, t3);
-    			append_dev(div3, t4);
+    			append_dev(div1, t2);
+    			append_dev(div3, t3);
     			append_dev(div3, div2);
+    			append_dev(div2, t4);
+    			append_dev(div2, t5);
 
     			if (!mounted) {
-    				dispose = listen_dev(div4, "click", /*goProduct*/ ctx[3], false, false, false);
+    				dispose = listen_dev(div4, "click", /*goProduct*/ ctx[1], false, false, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*thumb*/ 4 && !src_url_equal(img.src, img_src_value = "/img/" + /*thumb*/ ctx[2])) {
+    			if (dirty & /*product*/ 1 && !src_url_equal(img.src, img_src_value = "/img/" + /*product*/ ctx[0].thumb)) {
     				attr_dev(img, "src", img_src_value);
     			}
 
-    			if (dirty & /*artist*/ 1) set_data_dev(t1, /*artist*/ ctx[0]);
-    			if (dirty & /*title*/ 2) set_data_dev(t3, /*title*/ ctx[1]);
+    			if (dirty & /*goProduct, product*/ 3) {
+    				each_value = /*product*/ ctx[0].owner;
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*product*/ 1 && t2_value !== (t2_value = /*product*/ ctx[0].title + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*product*/ 1 && t4_value !== (t4_value = /*product*/ ctx[0].price + "")) set_data_dev(t4, t4_value);
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
+    			destroy_each(each_blocks, detaching);
     			mounted = false;
     			dispose();
     		}
@@ -2121,60 +2217,39 @@ var app = (function () {
     function instance$5($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('ProductView', slots, []);
-    	let { artist } = $$props;
-    	let { title } = $$props;
-    	let { productpkey } = $$props;
-    	let { thumb } = $$props;
+    	let { product } = $$props;
 
     	function goProduct() {
-    		location.href = "/#/product/" + productpkey;
+    		location.href = "/#/product/" + product.productpkey;
     	}
 
-    	const writable_props = ['artist', 'title', 'productpkey', 'thumb'];
+    	const writable_props = ['product'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<ProductView> was created with unknown prop '${key}'`);
     	});
 
     	$$self.$$set = $$props => {
-    		if ('artist' in $$props) $$invalidate(0, artist = $$props.artist);
-    		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-    		if ('productpkey' in $$props) $$invalidate(4, productpkey = $$props.productpkey);
-    		if ('thumb' in $$props) $$invalidate(2, thumb = $$props.thumb);
+    		if ('product' in $$props) $$invalidate(0, product = $$props.product);
     	};
 
-    	$$self.$capture_state = () => ({
-    		artist,
-    		title,
-    		productpkey,
-    		thumb,
-    		goProduct
-    	});
+    	$$self.$capture_state = () => ({ product, goProduct });
 
     	$$self.$inject_state = $$props => {
-    		if ('artist' in $$props) $$invalidate(0, artist = $$props.artist);
-    		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-    		if ('productpkey' in $$props) $$invalidate(4, productpkey = $$props.productpkey);
-    		if ('thumb' in $$props) $$invalidate(2, thumb = $$props.thumb);
+    		if ('product' in $$props) $$invalidate(0, product = $$props.product);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [artist, title, thumb, goProduct, productpkey];
+    	return [product, goProduct];
     }
 
     class ProductView extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-
-    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
-    			artist: 0,
-    			title: 1,
-    			productpkey: 4,
-    			thumb: 2
-    		});
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, { product: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2186,52 +2261,16 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*artist*/ ctx[0] === undefined && !('artist' in props)) {
-    			console.warn("<ProductView> was created without expected prop 'artist'");
-    		}
-
-    		if (/*title*/ ctx[1] === undefined && !('title' in props)) {
-    			console.warn("<ProductView> was created without expected prop 'title'");
-    		}
-
-    		if (/*productpkey*/ ctx[4] === undefined && !('productpkey' in props)) {
-    			console.warn("<ProductView> was created without expected prop 'productpkey'");
-    		}
-
-    		if (/*thumb*/ ctx[2] === undefined && !('thumb' in props)) {
-    			console.warn("<ProductView> was created without expected prop 'thumb'");
+    		if (/*product*/ ctx[0] === undefined && !('product' in props)) {
+    			console.warn("<ProductView> was created without expected prop 'product'");
     		}
     	}
 
-    	get artist() {
+    	get product() {
     		throw new Error("<ProductView>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set artist(value) {
-    		throw new Error("<ProductView>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get title() {
-    		throw new Error("<ProductView>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set title(value) {
-    		throw new Error("<ProductView>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get productpkey() {
-    		throw new Error("<ProductView>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set productpkey(value) {
-    		throw new Error("<ProductView>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get thumb() {
-    		throw new Error("<ProductView>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set thumb(value) {
+    	set product(value) {
     		throw new Error("<ProductView>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -2268,7 +2307,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h2 = element("h2");
-    			h2.textContent = "ARTIST NAME";
+    			h2.textContent = "PRODUCTS";
     			t1 = space();
     			hr = element("hr");
     			t2 = space();
@@ -2280,9 +2319,9 @@ var app = (function () {
 
     			add_location(h2, file$4, 14, 4, 460);
     			attr_dev(hr, "class", "svelte-nab7z5");
-    			add_location(hr, file$4, 15, 4, 490);
+    			add_location(hr, file$4, 15, 4, 487);
     			attr_dev(div, "class", "container svelte-nab7z5");
-    			add_location(div, file$4, 16, 4, 500);
+    			add_location(div, file$4, 16, 4, 497);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -2373,12 +2412,7 @@ var app = (function () {
     	let current;
 
     	productview = new ProductView({
-    			props: {
-    				owner: /*item*/ ctx[2].owner,
-    				title: /*item*/ ctx[2].title,
-    				productpkey: /*item*/ ctx[2].productpkey,
-    				thumb: /*item*/ ctx[2].thumb
-    			},
+    			props: { product: /*item*/ ctx[2] },
     			$$inline: true
     		});
 
@@ -2388,7 +2422,7 @@ var app = (function () {
     			create_component(productview.$$.fragment);
     			t = space();
     			attr_dev(div, "class", "item svelte-nab7z5");
-    			add_location(div, file$4, 18, 8, 571);
+    			add_location(div, file$4, 18, 8, 568);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2398,10 +2432,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const productview_changes = {};
-    			if (dirty & /*list*/ 2) productview_changes.owner = /*item*/ ctx[2].owner;
-    			if (dirty & /*list*/ 2) productview_changes.title = /*item*/ ctx[2].title;
-    			if (dirty & /*list*/ 2) productview_changes.productpkey = /*item*/ ctx[2].productpkey;
-    			if (dirty & /*list*/ 2) productview_changes.thumb = /*item*/ ctx[2].thumb;
+    			if (dirty & /*list*/ 2) productview_changes.product = /*item*/ ctx[2];
     			productview.$set(productview_changes);
     		},
     		i: function intro(local) {

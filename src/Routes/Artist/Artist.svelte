@@ -12,12 +12,12 @@
 </script>
 <article>
     {#if params}    
-    <h2>ARTIST NAME</h2>    
+    <h2>PRODUCTS</h2>    
     <hr>
     <div class="container">
         {#each list as item}        
         <div class="item">
-            <ProductView owner={item.owner} title={item.title} productpkey={item.productpkey} thumb={item.thumb}/>
+            <ProductView product={item}/>
         </div>        
         {/each}
     </div>    
