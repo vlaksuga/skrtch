@@ -2,6 +2,7 @@
     export let product;
 
     function goProduct() { location.href = "/#/product/" + product.productpkey; }
+    function formatDigit(num) { return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); }
 </script>
 
 <div class="container" on:click={goProduct}>
@@ -9,11 +10,11 @@
     <div class="info">    
         <div class="owner">
         {#each product.owner as item}
-            <span on:click={goProduct}>{item.name}</span>                            
+            <span>{item.name}</span>                            
         {/each}            
         </div>    
         <div class="title">{product.title}</div>
-        <div class="price">{product.price}원</div>
+        <div class="price">{formatDigit(product.price)}원</div>
     </div>
 </div>
 

@@ -2030,36 +2030,27 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (11:8) {#each product.owner as item}
+    // (12:8) {#each product.owner as item}
     function create_each_block$1(ctx) {
     	let span;
     	let t_value = /*item*/ ctx[2].name + "";
     	let t;
-    	let mounted;
-    	let dispose;
 
     	const block = {
     		c: function create() {
     			span = element("span");
     			t = text(t_value);
-    			add_location(span, file$5, 11, 12, 338);
+    			add_location(span, file$5, 12, 12, 444);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
     			append_dev(span, t);
-
-    			if (!mounted) {
-    				dispose = listen_dev(span, "click", /*goProduct*/ ctx[1], false, false, false);
-    				mounted = true;
-    			}
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*product*/ 1 && t_value !== (t_value = /*item*/ ctx[2].name + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(span);
-    			mounted = false;
-    			dispose();
     		}
     	};
 
@@ -2067,7 +2058,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(11:8) {#each product.owner as item}",
+    		source: "(12:8) {#each product.owner as item}",
     		ctx
     	});
 
@@ -2087,7 +2078,7 @@ var app = (function () {
     	let t2;
     	let t3;
     	let div2;
-    	let t4_value = /*product*/ ctx[0].price + "";
+    	let t4_value = formatDigit(/*product*/ ctx[0].price) + "";
     	let t4;
     	let t5;
     	let mounted;
@@ -2122,17 +2113,17 @@ var app = (function () {
     			attr_dev(img, "alt", "img");
     			if (!src_url_equal(img.src, img_src_value = "/img/" + /*product*/ ctx[0].thumb)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-11r4n0n");
-    			add_location(img, file$5, 7, 4, 183);
+    			add_location(img, file$5, 8, 4, 289);
     			attr_dev(div0, "class", "owner svelte-11r4n0n");
-    			add_location(div0, file$5, 9, 8, 266);
+    			add_location(div0, file$5, 10, 8, 372);
     			attr_dev(div1, "class", "title");
-    			add_location(div1, file$5, 14, 8, 470);
+    			add_location(div1, file$5, 15, 8, 555);
     			attr_dev(div2, "class", "price");
-    			add_location(div2, file$5, 15, 8, 520);
+    			add_location(div2, file$5, 16, 8, 605);
     			attr_dev(div3, "class", "info");
-    			add_location(div3, file$5, 8, 4, 234);
+    			add_location(div3, file$5, 9, 4, 340);
     			attr_dev(div4, "class", "container svelte-11r4n0n");
-    			add_location(div4, file$5, 6, 0, 133);
+    			add_location(div4, file$5, 7, 0, 239);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2166,7 +2157,7 @@ var app = (function () {
     				attr_dev(img, "src", img_src_value);
     			}
 
-    			if (dirty & /*goProduct, product*/ 3) {
+    			if (dirty & /*product*/ 1) {
     				each_value = /*product*/ ctx[0].owner;
     				validate_each_argument(each_value);
     				let i;
@@ -2191,7 +2182,7 @@ var app = (function () {
     			}
 
     			if (dirty & /*product*/ 1 && t2_value !== (t2_value = /*product*/ ctx[0].title + "")) set_data_dev(t2, t2_value);
-    			if (dirty & /*product*/ 1 && t4_value !== (t4_value = /*product*/ ctx[0].price + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*product*/ 1 && t4_value !== (t4_value = formatDigit(/*product*/ ctx[0].price) + "")) set_data_dev(t4, t4_value);
     		},
     		i: noop,
     		o: noop,
@@ -2214,6 +2205,10 @@ var app = (function () {
     	return block;
     }
 
+    function formatDigit(num) {
+    	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     function instance$5($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('ProductView', slots, []);
@@ -2233,7 +2228,7 @@ var app = (function () {
     		if ('product' in $$props) $$invalidate(0, product = $$props.product);
     	};
 
-    	$$self.$capture_state = () => ({ product, goProduct });
+    	$$self.$capture_state = () => ({ product, goProduct, formatDigit });
 
     	$$self.$inject_state = $$props => {
     		if ('product' in $$props) $$invalidate(0, product = $$props.product);
