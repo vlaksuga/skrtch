@@ -7,7 +7,11 @@ html, body {
 }
 
 article {
-	margin: 150px 40px;
+	position: relative;
+	top: 100px;
+	left: 0;
+	right: 0;	
+	margin: 0 40px;
 }
 
 body {

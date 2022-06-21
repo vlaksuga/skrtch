@@ -19,6 +19,7 @@
 		left: 0;
 		right: 0;		
 		text-transform: uppercase;		
+		z-index: 1000;
 	}
 
 

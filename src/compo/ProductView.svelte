@@ -2,6 +2,7 @@
     export let artist;
     export let title;
     export let productpkey;
+    export let thumb;
 
     function goProduct(){
         location.href = "/#/product/" + productpkey;
@@ -9,10 +10,11 @@
 </script>
 
 <div class="container" on:click={goProduct}>
-    <img src="/img/img01.jpg" alt="img">
+    <img alt="img" src={thumb}>
     <div class="info">
-        <span class="artist">{artist}</span>
-        <span class="title">{title}</span>
+        <div class="artist">{artist}</div>
+        <div class="title">{title}</div>
+        <div class="price">30,000원</div>
     </div>
 </div>
 
@@ -23,9 +25,10 @@
         width: 100%;
         cursor: pointer;
         box-sizing: border-box;
+        margin-bottom: 20px;
     }
 
-    div.info {
+    div.artist {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow-x: hidden;

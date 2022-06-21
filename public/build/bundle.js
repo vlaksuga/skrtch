@@ -829,7 +829,7 @@ var app = (function () {
     }
 
     // (244:0) {#if componentParams}
-    function create_if_block$2(ctx) {
+    function create_if_block$1(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -917,7 +917,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$2.name,
+    		id: create_if_block$1.name,
     		type: "if",
     		source: "(244:0) {#if componentParams}",
     		ctx
@@ -931,7 +931,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$2, create_else_block$1];
+    	const if_block_creators = [create_if_block$1, create_else_block$1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -1796,18 +1796,18 @@ var app = (function () {
     			add_location(a0, file$7, 4, 8, 59);
     			attr_dev(h1, "class", "svelte-z8eyy1");
     			add_location(h1, file$7, 4, 4, 55);
-    			attr_dev(a1, "href", "#/artist/2");
+    			attr_dev(a1, "href", "#/artist");
     			add_location(a1, file$7, 6, 12, 111);
     			attr_dev(li0, "class", "svelte-z8eyy1");
     			add_location(li0, file$7, 6, 8, 107);
     			attr_dev(a2, "href", "#/product");
-    			add_location(a2, file$7, 7, 12, 161);
+    			add_location(a2, file$7, 7, 12, 159);
     			attr_dev(li1, "class", "svelte-z8eyy1");
-    			add_location(li1, file$7, 7, 8, 157);
+    			add_location(li1, file$7, 7, 8, 155);
     			attr_dev(a3, "href", "#/search");
-    			add_location(a3, file$7, 8, 12, 211);
+    			add_location(a3, file$7, 8, 12, 209);
     			attr_dev(li2, "class", "svelte-z8eyy1");
-    			add_location(li2, file$7, 8, 8, 207);
+    			add_location(li2, file$7, 8, 8, 205);
     			attr_dev(ul, "class", "svelte-z8eyy1");
     			add_location(ul, file$7, 5, 4, 93);
     			attr_dev(div, "class", "svelte-z8eyy1");
@@ -1931,7 +1931,7 @@ var app = (function () {
     			create_component(topheader.$$.fragment);
     			t = space();
     			create_component(mainheader.$$.fragment);
-    			attr_dev(header, "class", "svelte-8tkzh9");
+    			attr_dev(header, "class", "svelte-100y5z0");
     			add_location(header, file$6, 6, 0, 132);
     		},
     		l: function claim(nodes) {
@@ -2103,70 +2103,83 @@ var app = (function () {
     const file$4 = "src\\compo\\ProductView.svelte";
 
     function create_fragment$4(ctx) {
-    	let div1;
+    	let div4;
     	let img;
     	let img_src_value;
     	let t0;
+    	let div3;
     	let div0;
-    	let span0;
     	let t1;
     	let t2;
-    	let span1;
+    	let div1;
     	let t3;
+    	let t4;
+    	let div2;
     	let mounted;
     	let dispose;
 
     	const block = {
     		c: function create() {
-    			div1 = element("div");
+    			div4 = element("div");
     			img = element("img");
     			t0 = space();
+    			div3 = element("div");
     			div0 = element("div");
-    			span0 = element("span");
     			t1 = text(/*artist*/ ctx[0]);
     			t2 = space();
-    			span1 = element("span");
+    			div1 = element("div");
     			t3 = text(/*title*/ ctx[1]);
-    			if (!src_url_equal(img.src, img_src_value = "/img/img01.jpg")) attr_dev(img, "src", img_src_value);
+    			t4 = space();
+    			div2 = element("div");
+    			div2.textContent = "30,000원";
     			attr_dev(img, "alt", "img");
-    			attr_dev(img, "class", "svelte-18hye9p");
-    			add_location(img, file$4, 11, 4, 239);
-    			attr_dev(span0, "class", "artist");
-    			add_location(span0, file$4, 13, 8, 309);
-    			attr_dev(span1, "class", "title");
-    			add_location(span1, file$4, 14, 8, 355);
-    			attr_dev(div0, "class", "info svelte-18hye9p");
-    			add_location(div0, file$4, 12, 4, 281);
-    			attr_dev(div1, "class", "container svelte-18hye9p");
-    			add_location(div1, file$4, 10, 0, 189);
+    			if (!src_url_equal(img.src, img_src_value = /*thumb*/ ctx[2])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "class", "svelte-1hkn3th");
+    			add_location(img, file$4, 12, 4, 262);
+    			attr_dev(div0, "class", "artist svelte-1hkn3th");
+    			add_location(div0, file$4, 14, 8, 323);
+    			attr_dev(div1, "class", "title");
+    			add_location(div1, file$4, 15, 8, 367);
+    			attr_dev(div2, "class", "price");
+    			add_location(div2, file$4, 16, 8, 409);
+    			attr_dev(div3, "class", "info");
+    			add_location(div3, file$4, 13, 4, 295);
+    			attr_dev(div4, "class", "container svelte-1hkn3th");
+    			add_location(div4, file$4, 11, 0, 212);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div1, anchor);
-    			append_dev(div1, img);
-    			append_dev(div1, t0);
-    			append_dev(div1, div0);
-    			append_dev(div0, span0);
-    			append_dev(span0, t1);
-    			append_dev(div0, t2);
-    			append_dev(div0, span1);
-    			append_dev(span1, t3);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, img);
+    			append_dev(div4, t0);
+    			append_dev(div4, div3);
+    			append_dev(div3, div0);
+    			append_dev(div0, t1);
+    			append_dev(div3, t2);
+    			append_dev(div3, div1);
+    			append_dev(div1, t3);
+    			append_dev(div3, t4);
+    			append_dev(div3, div2);
 
     			if (!mounted) {
-    				dispose = listen_dev(div1, "click", /*goProduct*/ ctx[2], false, false, false);
+    				dispose = listen_dev(div4, "click", /*goProduct*/ ctx[3], false, false, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
+    			if (dirty & /*thumb*/ 4 && !src_url_equal(img.src, img_src_value = /*thumb*/ ctx[2])) {
+    				attr_dev(img, "src", img_src_value);
+    			}
+
     			if (dirty & /*artist*/ 1) set_data_dev(t1, /*artist*/ ctx[0]);
     			if (dirty & /*title*/ 2) set_data_dev(t3, /*title*/ ctx[1]);
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(div4);
     			mounted = false;
     			dispose();
     		}
@@ -2189,12 +2202,13 @@ var app = (function () {
     	let { artist } = $$props;
     	let { title } = $$props;
     	let { productpkey } = $$props;
+    	let { thumb } = $$props;
 
     	function goProduct() {
     		location.href = "/#/product/" + productpkey;
     	}
 
-    	const writable_props = ['artist', 'title', 'productpkey'];
+    	const writable_props = ['artist', 'title', 'productpkey', 'thumb'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<ProductView> was created with unknown prop '${key}'`);
@@ -2203,28 +2217,42 @@ var app = (function () {
     	$$self.$$set = $$props => {
     		if ('artist' in $$props) $$invalidate(0, artist = $$props.artist);
     		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-    		if ('productpkey' in $$props) $$invalidate(3, productpkey = $$props.productpkey);
+    		if ('productpkey' in $$props) $$invalidate(4, productpkey = $$props.productpkey);
+    		if ('thumb' in $$props) $$invalidate(2, thumb = $$props.thumb);
     	};
 
-    	$$self.$capture_state = () => ({ artist, title, productpkey, goProduct });
+    	$$self.$capture_state = () => ({
+    		artist,
+    		title,
+    		productpkey,
+    		thumb,
+    		goProduct
+    	});
 
     	$$self.$inject_state = $$props => {
     		if ('artist' in $$props) $$invalidate(0, artist = $$props.artist);
     		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-    		if ('productpkey' in $$props) $$invalidate(3, productpkey = $$props.productpkey);
+    		if ('productpkey' in $$props) $$invalidate(4, productpkey = $$props.productpkey);
+    		if ('thumb' in $$props) $$invalidate(2, thumb = $$props.thumb);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [artist, title, goProduct, productpkey];
+    	return [artist, title, thumb, goProduct, productpkey];
     }
 
     class ProductView extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { artist: 0, title: 1, productpkey: 3 });
+
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
+    			artist: 0,
+    			title: 1,
+    			productpkey: 4,
+    			thumb: 2
+    		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2244,8 +2272,12 @@ var app = (function () {
     			console.warn("<ProductView> was created without expected prop 'title'");
     		}
 
-    		if (/*productpkey*/ ctx[3] === undefined && !('productpkey' in props)) {
+    		if (/*productpkey*/ ctx[4] === undefined && !('productpkey' in props)) {
     			console.warn("<ProductView> was created without expected prop 'productpkey'");
+    		}
+
+    		if (/*thumb*/ ctx[2] === undefined && !('thumb' in props)) {
+    			console.warn("<ProductView> was created without expected prop 'thumb'");
     		}
     	}
 
@@ -2272,6 +2304,14 @@ var app = (function () {
     	set productpkey(value) {
     		throw new Error("<ProductView>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
+
+    	get thumb() {
+    		throw new Error("<ProductView>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set thumb(value) {
+    		throw new Error("<ProductView>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
     }
 
     /* src\Routes\Artist\Artist.svelte generated by Svelte v3.48.0 */
@@ -2279,65 +2319,11 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[2] = list[i];
+    	child_ctx[1] = list[i];
     	return child_ctx;
     }
 
-    // (18:8) {#if params}
-    function create_if_block$1(ctx) {
-    	let div;
-    	let productview;
-    	let current;
-
-    	productview = new ProductView({
-    			props: {
-    				artist: item.title,
-    				title: item.title,
-    				productpkey: item.id
-    			},
-    			$$inline: true
-    		});
-
-    	const block = {
-    		c: function create() {
-    			div = element("div");
-    			create_component(productview.$$.fragment);
-    			attr_dev(div, "class", "item svelte-1pzd0c4");
-    			add_location(div, file$3, 18, 8, 511);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			mount_component(productview, div, null);
-    			current = true;
-    		},
-    		p: noop,
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(productview.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(productview.$$.fragment, local);
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
-    			destroy_component(productview);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block$1.name,
-    		type: "if",
-    		source: "(18:8) {#if params}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (23:8) {#each list as item}
+    // (17:8) {#each list as item}
     function create_each_block(ctx) {
     	let div;
     	let productview;
@@ -2346,9 +2332,10 @@ var app = (function () {
 
     	productview = new ProductView({
     			props: {
-    				artist: /*item*/ ctx[2].title,
-    				title: /*item*/ ctx[2].title,
-    				productpkey: /*item*/ ctx[2].id
+    				artist: /*item*/ ctx[1].title,
+    				title: /*item*/ ctx[1].title,
+    				productpkey: /*item*/ ctx[1].id,
+    				thumb: /*item*/ ctx[1].url
     			},
     			$$inline: true
     		});
@@ -2358,8 +2345,8 @@ var app = (function () {
     			div = element("div");
     			create_component(productview.$$.fragment);
     			t = space();
-    			attr_dev(div, "class", "item svelte-1pzd0c4");
-    			add_location(div, file$3, 23, 8, 703);
+    			attr_dev(div, "class", "item svelte-nab7z5");
+    			add_location(div, file$3, 17, 8, 519);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2369,9 +2356,10 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const productview_changes = {};
-    			if (dirty & /*list*/ 2) productview_changes.artist = /*item*/ ctx[2].title;
-    			if (dirty & /*list*/ 2) productview_changes.title = /*item*/ ctx[2].title;
-    			if (dirty & /*list*/ 2) productview_changes.productpkey = /*item*/ ctx[2].id;
+    			if (dirty & /*list*/ 1) productview_changes.artist = /*item*/ ctx[1].title;
+    			if (dirty & /*list*/ 1) productview_changes.title = /*item*/ ctx[1].title;
+    			if (dirty & /*list*/ 1) productview_changes.productpkey = /*item*/ ctx[1].id;
+    			if (dirty & /*list*/ 1) productview_changes.thumb = /*item*/ ctx[1].url;
     			productview.$set(productview_changes);
     		},
     		i: function intro(local) {
@@ -2393,7 +2381,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(23:8) {#each list as item}",
+    		source: "(17:8) {#each list as item}",
     		ctx
     	});
 
@@ -2407,10 +2395,8 @@ var app = (function () {
     	let hr;
     	let t2;
     	let div;
-    	let t3;
     	let current;
-    	let if_block = /*params*/ ctx[0] && create_if_block$1(ctx);
-    	let each_value = /*list*/ ctx[1];
+    	let each_value = /*list*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -2426,25 +2412,23 @@ var app = (function () {
     		c: function create() {
     			article = element("article");
     			h2 = element("h2");
-    			h2.textContent = "AMY WINEHOUSE";
+    			h2.textContent = "ARTIST NAME";
     			t1 = space();
     			hr = element("hr");
     			t2 = space();
     			div = element("div");
-    			if (if_block) if_block.c();
-    			t3 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			add_location(h2, file$3, 14, 4, 414);
-    			attr_dev(hr, "class", "svelte-1pzd0c4");
-    			add_location(hr, file$3, 15, 4, 446);
-    			attr_dev(div, "class", "container svelte-1pzd0c4");
-    			add_location(div, file$3, 16, 4, 456);
-    			attr_dev(article, "class", "svelte-1pzd0c4");
-    			add_location(article, file$3, 13, 0, 395);
+    			add_location(h2, file$3, 13, 4, 408);
+    			attr_dev(hr, "class", "svelte-nab7z5");
+    			add_location(hr, file$3, 14, 4, 438);
+    			attr_dev(div, "class", "container svelte-nab7z5");
+    			add_location(div, file$3, 15, 4, 448);
+    			attr_dev(article, "class", "svelte-nab7z5");
+    			add_location(article, file$3, 12, 0, 389);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2456,8 +2440,6 @@ var app = (function () {
     			append_dev(article, hr);
     			append_dev(article, t2);
     			append_dev(article, div);
-    			if (if_block) if_block.m(div, null);
-    			append_dev(div, t3);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div, null);
@@ -2466,31 +2448,8 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (/*params*/ ctx[0]) {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
-
-    					if (dirty & /*params*/ 1) {
-    						transition_in(if_block, 1);
-    					}
-    				} else {
-    					if_block = create_if_block$1(ctx);
-    					if_block.c();
-    					transition_in(if_block, 1);
-    					if_block.m(div, t3);
-    				}
-    			} else if (if_block) {
-    				group_outros();
-
-    				transition_out(if_block, 1, 1, () => {
-    					if_block = null;
-    				});
-
-    				check_outros();
-    			}
-
-    			if (dirty & /*list*/ 2) {
-    				each_value = /*list*/ ctx[1];
+    			if (dirty & /*list*/ 1) {
+    				each_value = /*list*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
 
@@ -2519,7 +2478,6 @@ var app = (function () {
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(if_block);
 
     			for (let i = 0; i < each_value.length; i += 1) {
     				transition_in(each_blocks[i]);
@@ -2528,7 +2486,6 @@ var app = (function () {
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(if_block);
     			each_blocks = each_blocks.filter(Boolean);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -2539,7 +2496,6 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(article);
-    			if (if_block) if_block.d();
     			destroy_each(each_blocks, detaching);
     		}
     	};
@@ -2555,54 +2511,42 @@ var app = (function () {
     	return block;
     }
 
-    const endpoint = "https://jsonplaceholder.typicode.com/posts";
+    const endpoint = "https://jsonplaceholder.typicode.com/albums/1/photos";
 
     function instance$3($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Artist', slots, []);
     	let list = [];
-    	let { params } = $$props;
 
     	onMount(async function () {
     		const respose = await fetch(endpoint);
     		const data = await respose.json();
-    		$$invalidate(1, list = data);
+    		$$invalidate(0, list = data);
     	});
 
-    	const writable_props = ['params'];
+    	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Artist> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$$set = $$props => {
-    		if ('params' in $$props) $$invalidate(0, params = $$props.params);
-    	};
-
-    	$$self.$capture_state = () => ({
-    		onMount,
-    		ProductView,
-    		endpoint,
-    		list,
-    		params
-    	});
+    	$$self.$capture_state = () => ({ onMount, ProductView, endpoint, list });
 
     	$$self.$inject_state = $$props => {
-    		if ('list' in $$props) $$invalidate(1, list = $$props.list);
-    		if ('params' in $$props) $$invalidate(0, params = $$props.params);
+    		if ('list' in $$props) $$invalidate(0, list = $$props.list);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [params, list];
+    	return [list];
     }
 
     class Artist extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { params: 0 });
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2610,21 +2554,6 @@ var app = (function () {
     			options,
     			id: create_fragment$3.name
     		});
-
-    		const { ctx } = this.$$;
-    		const props = options.props || {};
-
-    		if (/*params*/ ctx[0] === undefined && !('params' in props)) {
-    			console.warn("<Artist> was created without expected prop 'params'");
-    		}
-    	}
-
-    	get params() {
-    		throw new Error("<Artist>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set params(value) {
-    		throw new Error("<Artist>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
@@ -2635,7 +2564,7 @@ var app = (function () {
     function create_fragment$2(ctx) {
     	let article;
     	let t0;
-    	let t1_value = /*params*/ ctx[0].productpkey + "";
+    	let t1_value = /*params*/ ctx[0].id + "";
     	let t1;
     	let t2;
 
@@ -2645,7 +2574,7 @@ var app = (function () {
     			t0 = text("this is product ");
     			t1 = text(t1_value);
     			t2 = text(";");
-    			add_location(article, file$2, 3, 0, 45);
+    			add_location(article, file$2, 3, 0, 53);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2657,7 +2586,7 @@ var app = (function () {
     			append_dev(article, t2);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*params*/ 1 && t1_value !== (t1_value = /*params*/ ctx[0].productpkey + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*params*/ 1 && t1_value !== (t1_value = /*params*/ ctx[0].id + "")) set_data_dev(t1, t1_value);
     		},
     		i: noop,
     		o: noop,
@@ -2948,7 +2877,7 @@ var app = (function () {
     			t = space();
     			create_component(router.$$.fragment);
     			attr_dev(main, "class", "svelte-xxmlq5");
-    			add_location(main, file, 22, 0, 524);
+    			add_location(main, file, 22, 0, 505);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3002,8 +2931,8 @@ var app = (function () {
     	const routes = {
     		'/': Home,
     		'/artist': Artist,
-    		'/artist/:artistpkey': Artist,
-    		'/product/:productpkey': Product,
+    		'/artist/:id': Artist,
+    		'/product/:id': Product,
     		'/search': Search,
     		'/search/:keyword': Search
     	};

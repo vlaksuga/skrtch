@@ -6,22 +6,22 @@
 	import Home from "./Routes/Home/Home.svelte";
 	import Artist from "./Routes/Artist/Artist.svelte";
 	import Product from "./Routes/Product/Product.svelte";
-	import Search from "./Routes/Search/Search.svelte";
+	import Search from "./Routes/Search/Search.svelte";	
 
 	export let title;
 
 	const routes = {
 		'/' : Home,
 		'/artist' : Artist,
-		'/artist/:artistpkey' : Artist,
-		'/product/:productpkey' : Product,
+		'/artist/:id' : Artist,
+		'/product/:id' : Product,
 		'/search' : Search,
-		'/search/:keyword' : Search,		
+		'/search/:keyword' : Search
 	}
 </script>
 
 <main>
-	<Header title={title}/>
+	<Header title={title}/>	
 	<Router {routes}/>
 </main>
 

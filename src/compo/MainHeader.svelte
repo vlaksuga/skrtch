@@ -4,7 +4,7 @@
 <div>
     <h1><a href="/">{title}</a></h1>
     <ul>
-        <li><a href="#/artist/2">ARTIST</a></li>
+        <li><a href="#/artist">ARTIST</a></li>
         <li><a href="#/product">PRODUCT</a></li>
         <li><a href="#/search">search</a></li>
     </ul>

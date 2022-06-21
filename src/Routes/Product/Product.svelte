@@ -1,6 +1,6 @@
-<script>
-    export let params;
+<script>    
+    export let params;    
 </script>
-<article>
-    this is product {params.productpkey};
+<article>    
+    this is product {params.id};
 </article>

@@ -1,36 +1,29 @@
 <script>
     import { onMount } from "svelte";
     import ProductView from "../../compo/ProductView.svelte";
-    const endpoint = "https://jsonplaceholder.typicode.com/posts";
-    let list = [];
-    export let params;    
+    const endpoint = "https://jsonplaceholder.typicode.com/albums/1/photos";
+    let list = [];    
 
-    onMount(async function() {
+    onMount(async function() {        
         const respose = await fetch(endpoint);
         const data = await respose.json();
         list = data;
     })
 </script>
 <article>    
-    <h2>AMY WINEHOUSE</h2>    
+    <h2>ARTIST NAME</h2>    
     <hr>
     <div class="container">
-        {#if params}
-        <div class="item">
-            <ProductView artist={item.title} title={item.title} productpkey={item.id}/>
-        </div>      
-        {/if}
         {#each list as item}        
         <div class="item">
-            <ProductView artist={item.title} title={item.title} productpkey={item.id}/>
+            <ProductView artist={item.title} title={item.title} productpkey={item.id} thumb={item.url}/>
         </div>        
         {/each}
     </div>
 </article>
 
 <style>
-    article {
-        margin: 150px 20px;
+    article {        
         text-align: center;
     }
 
@@ -38,7 +31,8 @@
         margin: 50px 0;
     }
 
-    div.container {        
+    div.container {  
+        text-align: left;
         width: 100%;
         height: 100%;        
         margin: 0 auto;
@@ -49,5 +43,18 @@
     div.item {     
         display: inline-block;                
         width: 25%;   
+        vertical-align: top;
+    }
+
+    @media (max-width: 900px) {
+        div.item {
+            width: 50%;
+        }
+    }
+
+    @media (max-width: 640px) {
+        div.item {
+            width: 100%;
+        }
     }
 </style>
